@@ -9,35 +9,7 @@ namespace BingSearcher
     public class BingSearchClient
     {
         private static string urlBase = "http://www.bing.com";
-        private static List<string> GetUrlsList2(string searchedString, BingSearchParameters bingSearchParameters = null)
-        {
-            SetDefaultNetworkCredentials(bingSearchParameters?.UseDefaultNetworkCredentials);
-
-            List<string> ls = new List<string>();
-            HtmlNodeCollection htmlNodeCollection;
-
-            var searchUrl = SearchUrl(searchedString, bingSearchParameters);
-
-            do
-            {
-                HtmlDocument doc = new HtmlWeb().Load(urlBase + searchUrl);
-
-                foreach (HtmlNode row in doc.DocumentNode.SelectNodes("//ol[@id='b_results']//h2/a"))
-                {
-                    ls.Add(row.Attributes["href"].Value);
-                }
-
-                htmlNodeCollection = doc.DocumentNode.SelectNodes("//a[@class='sb_pagN']");
-                if (htmlNodeCollection != null)
-                {
-                    searchUrl = htmlNodeCollection.Last().Attributes["href"].Value.Replace("&amp;", "&").Replace("%3a", "%3A");
-                }
-            }
-            while (htmlNodeCollection != null);
-
-            return ls;
-        }
-
+ 
         public static List<string> GetUrlsList(string searchedString, BingSearchParameters bingSearchParameters = null)
         {
             return GetUrlsLazyList(searchedString, bingSearchParameters).ToList();
