@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication7", "ConsoleApplication7\ConsoleApplication7.csproj", "{734DF423-EDDF-4EA2-AE50-241F678862DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GClient", "ConsoleApplication7\GClient.csproj", "{734DF423-EDDF-4EA2-AE50-241F678862DF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BingSearcher", "BingSearchClient\BingSearcher.csproj", "{70002DD1-0757-447B-932A-D03DD84058FE}"
 EndProject
@@ -24,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C26C037D-A652-4F8C-8F96-439D7452940F}
 	EndGlobalSection
 EndGlobal

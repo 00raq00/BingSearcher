@@ -12,81 +12,9 @@ using System.Xml.Linq;
 
 namespace ConsoleApplication7
 {
-    public class BingSearchClient1
+    public class GClient
     {
-
-        internal List<string> GetData(ConcurrentDictionary<string, Dictionary<string, string>> cd, string searchedString = "utwardzony")
-        {
-            List<string> ls = new List<string>();
-            HtmlNodeCollection tmo = null;
-            string searchUrl = "/search?q=site%3Aezakupy.tesco.pl+" + searchedString + "&first=1&FORM=PORE";
-            do
-            {
-
-                HtmlAgilityPack.HtmlWeb web = new HtmlWeb();
-                HtmlAgilityPack.HtmlDocument doc = web.Load("http://www.bing.com" + searchUrl);
-
-                foreach (HtmlNode row in doc.DocumentNode.SelectNodes("//li/h2/a"))
-                {
-                    // Console.WriteLine(" URL: " + row.Attributes["href"].Value);
-
-                    ls.Add(row.Attributes["href"].Value);
-                    //parsTescoPage(row.Attributes["href"].Value);
-                   // Console.WriteLine(row.InnerText);
-                }
-
-                tmo = doc.DocumentNode.SelectNodes("//a[@class='sb_pagN']");
-                if (tmo != null)
-                {
-                    var row1 = tmo.Last();
-                    {
-                        //Console.WriteLine(" URL!: " + row1.Attributes["href"].Value);
-                        searchUrl = row1.Attributes["href"].Value.Replace("&amp;", "&").Replace("%3a", "%3A");
-                        //Console.WriteLine(row1.InnerText);
-                    }
-                }
-            }
-            while (tmo != null);
-
-            return ls;
-        }
-
-        internal IEnumerable<string> GetDataLazy(ConcurrentDictionary<string, Dictionary<string, string>> cd, string searchedString = "utwardzony")
-        {
-            List<string> ls = new List<string>();
-            HtmlNodeCollection tmo = null;
-            string searchUrl = "/search?q=site%3Aezakupy.tesco.pl+" + searchedString + "&first=1&FORM=PORE";
-            do
-            {
-
-                HtmlAgilityPack.HtmlWeb web = new HtmlWeb();
-                HtmlAgilityPack.HtmlDocument doc = web.Load("http://www.bing.com" + searchUrl);
-
-                foreach (HtmlNode row in doc.DocumentNode.SelectNodes("//li/h2/a"))
-                {
-                    // Console.WriteLine(" URL: " + row.Attributes["href"].Value);
-
-                  yield return  row.Attributes["href"].Value;
-                    //parsTescoPage(row.Attributes["href"].Value);
-                    //Console.WriteLine(row.InnerText);
-                }
-
-                tmo = doc.DocumentNode.SelectNodes("//a[@class='sb_pagN']");
-                if (tmo != null)
-                {
-                    var row1 = tmo.Last();
-                    {
-                        //Console.WriteLine(" URL!: " + row1.Attributes["href"].Value);
-                        searchUrl = row1.Attributes["href"].Value.Replace("&amp;", "&").Replace("%3a", "%3A");
-                        //Console.WriteLine(row1.InnerText);
-                    }
-                }
-            }
-            while (tmo != null);
-            yield break;
-
-        }
-
+        
         internal void parsTescoPageGetData(IEnumerable<string> enumerable, ConcurrentDictionary<string, Dictionary<string, string>> cd)
         {
             Parallel.ForEach(enumerable, new ParallelOptions() { MaxDegreeOfParallelism = 2 }, l =>
