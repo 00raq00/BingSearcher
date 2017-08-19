@@ -15,7 +15,7 @@ namespace BingSearcher
             return GetUrlsLazyList(searchedString, bingSearchParameters).ToList();
         }
 
-        public static IEnumerable<BingSearchEntity> GetBingSearchEntityLazyList(string searchedString, BingSearchParameters bingSearchParameters)
+        public static IEnumerable<BingSearchEntity> GetBingSearchEntityLazyList(string searchedString, BingSearchParameters bingSearchParameters = null)
         {
 
             SetDefaultNetworkCredentials(bingSearchParameters?.UseDefaultNetworkCredentials);
