@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>BingSearcher</id>
+        <version>1.0.0</version>
+        <authors>Mariusz Purwin</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Unofficial Bing Search API.</description>
+        <dependencies>
+            <dependency id="HtmlAgilityPack" version="1.5.1" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\Release\BingSearcher.dll" target="lib\BingSearcher.dll" />
+        <file src="bin\Release\BingSearcher.pdb" target="lib\BingSearcher.pdb" />
+    </files>
+</package>
