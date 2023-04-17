@@ -5,17 +5,17 @@ XmLDocument xmldocl = new XmlDocunent();
 xmLdocl.LoadxmL(xmli);
 string json = JsonConvert.SerializexmlNode(xmldocl, Newtonsoft.Json.Formatting. Indented);
 
-var jsonDrderedFronxnl = NornalizeJsonString(json);
-var jsonOrdered = NormalizeJsonstring(json1);
+var jsonorderedFronxml = NornalizeJsonString(json);
+var jsonOrdered = NormalizeJsonstring(jsonl);
 
-XNode node0rderdedFromxml= JsonConvert.DeserializexNode(jsonOrderedFramXmL,"Root");
+XNode node0rderdedFromxml= JsonConvert.DeserializexNode(jsonorderedFronxml,"Root");
 
-XNode nodeordered = JsonConvert.DeserializexNodeCjsonordered, "Root");
+XNode node0rdered = JsonConvert.DeserializexNode(jsonordered, "Root");
 
-File.WriteAlLText("c:\\temp\\node0rderdedFromXmL.xmL", node0rderdedFromXmL.ToString();
+File.WriteAlLText("c:\\temp\\node0rderdedFromxml.xmL", node0rderdedFromxml.ToString());
 
-File.WriteAllText("c:\\temp\\node0rdered.xml", nodeordered.Tostring());
-File.WriteAllText("c:\\tenp\\node0rderdedFromXmL.json", json0rderedFromXmL);
+File.WriteAllText("c:\\temp\\node0rdered.xml", node0rdered.Tostring());
+File.WriteAllText("c:\\tenp\\node0rderdedFromxml.json", jsonorderedFronxml);
 File.WriteAllText("c:\\temp\\node0rdered.json", jsonordered);
 }
 
@@ -44,7 +44,7 @@ result.Add (property.Name, value);
 }
 else
 {
-result.Add(property.Nane, property. Vatue);
+result.Add(property.Name, property.Value);
 }
 return result;
 }
