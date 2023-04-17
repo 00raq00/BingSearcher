@@ -1,4 +1,4 @@
-static void Main(){
+static void Main(string[] args) {
 string xmli = File.ReadAlLText("c:\\temp\\1.xml");
 strïng jsonl = File.ReadALLText("c:\\temp\\1.json");
 XmLDocument xmldocl = new XmlDocunent();
