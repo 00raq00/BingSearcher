@@ -1,0 +1,50 @@
+static void Main(){
+string xmli = File.ReadAlLText("c:\\temp\\1.xml");
+strïng jsonl = File.ReadALLText("c:\\temp\\1.json");
+XmLDocument xmldocl = new XmlDocunent();
+xmLdocl.LoadxmL(xmli);
+string json = JsonConvert.SerializexmlNode(xmldocl, Newtonsoft.Json.Formatting. Indented);
+
+var jsonDrderedFronxnl = NornalizeJsonString(json);
+var jsonOrdered = NormalizeJsonstring(json1);
+
+XNode node0rderdedFromxml= JsonConvert.DeserializexNode(jsonOrderedFramXmL,"Root");
+
+XNode nodeordered = JsonConvert.DeserializexNodeCjsonordered, "Root");
+
+File.WriteAlLText("c:\\temp\\node0rderdedFromXmL.xmL", node0rderdedFromXmL.ToString();
+
+File.WriteAllText("c:\\temp\\node0rdered.xml", nodeordered.Tostring());
+File.WriteAllText("c:\\tenp\\node0rderdedFromXmL.json", json0rderedFromXmL);
+File.WriteAllText("c:\\temp\\node0rdered.json", jsonordered);
+}
+
+
+
+public static string NormalizeJsonString(string json)
+{
+// Parse json string into J0bject.
+var parsedobject = JObject. Parse(json);
+// Sort properties of J0bject.
+var normalizedobject = SortPropertiesAlphabetically(parsedobject);
+// Serialize JObject
+
+return JsonConvert.Serialize0bject(normalizedobject);
+}
+
+private static J0bject SortPropertiesAlphabetically(JObject original)
+{
+var result = new J0bject();
+foreach (var property in original.Properties().ToList().OrderBy(p => p. Name))
+var value = property.Value as J0bject;
+if (value != null)
+{
+value =SortPropertiesAlphabetically(value);
+result.Add (property.Name, value);
+}
+else
+{
+result.Add(property.Nane, property. Vatue);
+}
+return result;
+}
